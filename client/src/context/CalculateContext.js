@@ -120,14 +120,13 @@ export const CalculateProvider = ({ children }) => {
 
   useEffect(() => {
     if (!isInitialized) {
-      // login();
       init();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialized]);
 
   useEffect(() => {
-    if (window.walletConnection?.isSignedIn()) {
+    if (!window.walletConnection?.isSignedIn()) {
       login();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
